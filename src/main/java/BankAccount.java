@@ -11,7 +11,6 @@ public class BankAccount {
 
 
     // constructor
-    // setter
     public BankAccount(String inputFirstName, String inputLastName, String inputDateOfBirth, int inputAccountNumber, String inputAccountType, int inputOverdraft) {
         this.firstName = inputFirstName;
         this.lastName = inputLastName;
@@ -22,25 +21,45 @@ public class BankAccount {
         this.overdraft = inputOverdraft;
     }
 
-    //getter
+    //  getters and setters
     public String getFirstName() {
         return this.firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getLastName() {
         return this.lastName;
     }
 
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
     public String getDateOfBirth() {
         return this.dateOfBirth;
+    }
+
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     public int getAccountNumber() {
         return this.accountNumber;
     }
 
+    public void setAccountNumber(int accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
     public int getBalance() {
         return this.balance;
+    }
+
+    public void setBalance(int balance) {
+        this.balance = balance;
     }
 
     // Deposit
@@ -89,9 +108,7 @@ public class BankAccount {
     }
 
     //Extension (overdraft)
-        public int getOverdraft(int amount) {
-        return this.overdraft -= amount;
-
-
+        public int calculateOverdraft(int amount) {
+            return this.overdraft -= amount;
         }
     }

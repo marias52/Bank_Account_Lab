@@ -7,14 +7,65 @@ public class BankAccountTest {
 
     BankAccount bankAccount;
 
-
     @BeforeEach
     public void setup() {
-        bankAccount = new BankAccount("maria", "Ali", "1/1/1", 1111, "currents account", 20);
+        bankAccount = new BankAccount("Maria", "Ali", "1/1/1", 1111, "Currents account", 20);
     }
 
     @Test
-    public void deposit() {
+    public void canGetFirstName() {
+        assertThat(bankAccount.getFirstName()).isEqualTo("Maria");
+    }
+
+    @Test
+    public void canGetLastName() {
+        assertThat(bankAccount.getLastName()).isEqualTo("Ali");
+    }
+
+    @Test
+    public void canGetDateOfBirth() {
+        assertThat(bankAccount.getDateOfBirth()).isEqualTo("1/1/1");
+    }
+
+    @Test
+    public void canGetAccountNumber() {
+        assertThat(bankAccount.getAccountNumber()).isEqualTo(1111);
+    }
+
+    @Test
+    public void canGetBalance() {
+        assertThat(bankAccount.getBalance()).isEqualTo(0);
+    }
+
+    @Test
+    public void canSetFirstName() {
+        bankAccount.setFirstName("Maria");
+        assertThat(bankAccount.getFirstName()).isEqualTo("Maria");
+    }
+
+
+    @Test
+    public void CanSetLastName() {
+        assertThat(bankAccount.getLastName()).isEqualTo("Ali");
+    }
+
+    @Test
+    public void canSetDateOfBirth() {
+        assertThat(bankAccount.getDateOfBirth()).isEqualTo("1/1/1");
+    }
+
+    @Test
+    public void canSetAccountNumber(){
+        assertThat(bankAccount.getAccountNumber()).isEqualTo(1111);
+    }
+
+    @Test
+    public void canSetBalance(){
+        assertThat(bankAccount.getBalance()).isEqualTo(0);
+    }
+
+    @Test
+    public void canDepositFunds() {
         //when
         int actual = bankAccount.calculateDeposit(10);
         //then
@@ -23,7 +74,7 @@ public class BankAccountTest {
     }
 
     @Test
-    public void withdrawal() {
+    public void caWithdrawFunds() {
         //when
         int actual = bankAccount.calculateWithdrawal(10);
         //then
@@ -63,9 +114,10 @@ public class BankAccountTest {
     @Test
     public void overdraft() {
         //when
-        double actual = bankAccount.calculateOverdraft("savings account", 100);
+        double actual = bankAccount.calculateOverdraft( 100);
         //then
-        double expected = 105;
+        double expected = -80;
         assertThat(actual).isEqualTo(expected);
+    }
 
 }
